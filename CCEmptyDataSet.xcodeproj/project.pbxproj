@@ -17,6 +17,7 @@
 		5E807E38205F45BF007FCE88 /* CCEmptyDataSetUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E807E37205F45BF007FCE88 /* CCEmptyDataSetUITests.m */; };
 		5E807E47205F4640007FCE88 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E807E46205F4640007FCE88 /* MainViewController.m */; };
 		5E807E4C205F4896007FCE88 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E807E4B205F4896007FCE88 /* UIScrollView+EmptyDataSet.m */; };
+		5E807E4F205FA23C007FCE88 /* images.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E807E4E205FA23C007FCE88 /* images.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		5E807E49205F485D007FCE88 /* CCEmptyDataSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCEmptyDataSet.h; sourceTree = "<group>"; };
 		5E807E4A205F4896007FCE88 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
 		5E807E4B205F4896007FCE88 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
+		5E807E4E205FA23C007FCE88 /* images.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = images.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 		5E807E48205F484A007FCE88 /* CCEmptyDataSet */ = {
 			isa = PBXGroup;
 			children = (
+				5E807E4E205FA23C007FCE88 /* images.bundle */,
 				5E807E49205F485D007FCE88 /* CCEmptyDataSet.h */,
 				5E807E4A205F4896007FCE88 /* UIScrollView+EmptyDataSet.h */,
 				5E807E4B205F4896007FCE88 /* UIScrollView+EmptyDataSet.m */,
@@ -261,6 +264,7 @@
 				5E807E20205F45BF007FCE88 /* LaunchScreen.storyboard in Resources */,
 				5E807E1D205F45BF007FCE88 /* Assets.xcassets in Resources */,
 				5E807E1B205F45BF007FCE88 /* Main.storyboard in Resources */,
+				5E807E4F205FA23C007FCE88 /* images.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
