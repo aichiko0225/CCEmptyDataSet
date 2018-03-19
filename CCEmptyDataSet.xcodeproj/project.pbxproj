@@ -16,6 +16,7 @@
 		5E807E2D205F45BF007FCE88 /* CCEmptyDataSetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E807E2C205F45BF007FCE88 /* CCEmptyDataSetTests.m */; };
 		5E807E38205F45BF007FCE88 /* CCEmptyDataSetUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E807E37205F45BF007FCE88 /* CCEmptyDataSetUITests.m */; };
 		5E807E47205F4640007FCE88 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E807E46205F4640007FCE88 /* MainViewController.m */; };
+		5E807E4C205F4896007FCE88 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E807E4B205F4896007FCE88 /* UIScrollView+EmptyDataSet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,9 @@
 		5E807E39205F45BF007FCE88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E807E45205F4640007FCE88 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		5E807E46205F4640007FCE88 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		5E807E49205F485D007FCE88 /* CCEmptyDataSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCEmptyDataSet.h; sourceTree = "<group>"; };
+		5E807E4A205F4896007FCE88 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
+		5E807E4B205F4896007FCE88 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 		5E807E12205F45BE007FCE88 /* CCEmptyDataSet */ = {
 			isa = PBXGroup;
 			children = (
+				5E807E48205F484A007FCE88 /* CCEmptyDataSet */,
 				5E807E13205F45BF007FCE88 /* AppDelegate.h */,
 				5E807E14205F45BF007FCE88 /* AppDelegate.m */,
 				5E807E16205F45BF007FCE88 /* ViewController.h */,
@@ -135,6 +140,16 @@
 				5E807E39205F45BF007FCE88 /* Info.plist */,
 			);
 			path = CCEmptyDataSetUITests;
+			sourceTree = "<group>";
+		};
+		5E807E48205F484A007FCE88 /* CCEmptyDataSet */ = {
+			isa = PBXGroup;
+			children = (
+				5E807E49205F485D007FCE88 /* CCEmptyDataSet.h */,
+				5E807E4A205F4896007FCE88 /* UIScrollView+EmptyDataSet.h */,
+				5E807E4B205F4896007FCE88 /* UIScrollView+EmptyDataSet.m */,
+			);
+			path = CCEmptyDataSet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +289,7 @@
 				5E807E23205F45BF007FCE88 /* main.m in Sources */,
 				5E807E15205F45BF007FCE88 /* AppDelegate.m in Sources */,
 				5E807E47205F4640007FCE88 /* MainViewController.m in Sources */,
+				5E807E4C205F4896007FCE88 /* UIScrollView+EmptyDataSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
