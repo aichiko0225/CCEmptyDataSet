@@ -11,6 +11,24 @@
 @protocol CCEmptyDataSetDelegate;
 
 /**
+ Provides 5 empty view display scenarios.
+ Default is EmptyDataSetTypeSearchError, EmptyDataSetTypeSearchNone
+ */
+typedef NS_ENUM(NSInteger, EmptyDataSetType) {
+    /// carts with button
+    EmptyDataSetTypeCarts = 0,
+    /// orders without button
+    EmptyDataSetTypeOrders,
+    /// search no data without button
+    EmptyDataSetTypeSearchNone,
+    /// search error with button
+    EmptyDataSetTypeSearchError,
+    /// activity without button
+    EmptyDataSetTypeActivity
+};
+
+
+/**
  A drop-in UITableView/UICollectionView superclass category for showing empty datasets whenever the view has no content to display.
  @discussion It will work automatically, by just conforming to CCEmptyDataSetSource, and returning the data you want to show.
  */
@@ -33,6 +51,15 @@
 @protocol CCEmptyDataSetSource <NSObject>
 
 @optional
+
+/**
+ Provides 5 empty view display scenarios.
+ 🐟🐟🐟🐟🐟🐟🐟🐟🐟🐟🐟
+ * implementation delegate other EmptyDataSetSource will be invalid.
+ 🐟🐟🐟🐟🐟🐟🐟🐟🐟🐟🐟
+ */
+- (EmptyDataSetType)showTypeForEmptyDataSet:(UIScrollView * _Nullable)scrollView;
+
 /**
  Asks the data source for the title of the dataset.
  The dataset uses a fixed font style by default, if no attributes are set. If you want a different font style, return a attributed string.

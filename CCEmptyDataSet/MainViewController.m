@@ -2,14 +2,16 @@
 //  MainViewController.m
 //  CCEmptyDataSet
 //
-//  Created by 赵光飞 on 2018/3/19.
-//  Copyright © 2018年 赵光飞. All rights reserved.
+//  Created by ash on 2018/3/19.
+//  Copyright © 2018年 ash. All rights reserved.
 //
 
 #import "MainViewController.h"
 #import "CCEmptyDataSet.h"
 
 @interface MainViewController ()<CCEmptyDataSetSource, CCEmptyDataSetDelegate>
+
+@property (nonatomic, assign) BOOL isRefresh;
 
 @end
 
@@ -23,16 +25,29 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    _isRefresh = NO;
+    self.tableView.tableFooterView = [[UIView alloc] init];
     
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
     __weak typeof(self) weakSelf = self;
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+    [refreshControl addTarget:self action:@selector(refreshAction) forControlEvents:UIControlEventValueChanged];
+    self.tableView.refreshControl = refreshControl;
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         __strong __typeof(weakSelf)strongSelf = weakSelf;
         [strongSelf.tableView reloadData];
     });
-    
-    
+}
+
+- (void)refreshAction {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.refreshControl endRefreshing];
+        [self.tableView reloadData];
+        _isRefresh = !_isRefresh;
+    });
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,25 +58,44 @@
 
 #pragma mark - Table view data source
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 0;
+    return _isRefresh ? 2: 0;
 }
 
-/*
+- (EmptyDataSetType)showTypeForEmptyDataSet:(UIScrollView *)scrollView {
+    return random()%5;
+}
+
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapView:(UIView *)view {
+    _isRefresh = !_isRefresh;
+    [self.tableView reloadData];
+}
+
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button {
+    _isRefresh = !_isRefresh;
+    [self.tableView reloadData];
+}
+
+
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
- UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
- 
- // Configure the cell...
- 
- return cell;
+     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+     if (cell == nil) {
+         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+     }
+     // Configure the cell...
+     return cell;
  }
- */
+
 
 /*
  // Override to support conditional editing of the table view.

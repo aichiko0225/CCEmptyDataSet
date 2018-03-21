@@ -2,8 +2,8 @@
 //  ViewController.m
 //  CCEmptyDataSet
 //
-//  Created by 赵光飞 on 2018/3/19.
-//  Copyright © 2018年 赵光飞. All rights reserved.
+//  Created by ash on 2018/3/19.
+//  Copyright © 2018年 ash. All rights reserved.
 //
 
 #import "ViewController.h"
