@@ -86,7 +86,7 @@ static char const * const kEmptyDataSetView = "emptyDataSetView";
         return;
     }
     
-    NSInteger count = [self cc_itemsCount];
+    long count = [self cc_itemsCount];
     
     if (([self cc_shouldDisplay] && count == 0) || [self cc_shouldBeForcedToDisplay]) {
         [self cc_willAppear];
