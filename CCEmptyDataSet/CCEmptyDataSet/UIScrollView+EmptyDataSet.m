@@ -87,11 +87,9 @@ static char const * const kEmptyDataSetView = "emptyDataSetView";
     }
     
     NSInteger count = [self cc_itemsCount];
-    NSLog(@"%ld", count);
     
     if (([self cc_shouldDisplay] && count == 0) || [self cc_shouldBeForcedToDisplay]) {
         [self cc_willAppear];
-        NSLog(@"%@", @"cc_willAppear");
         CCEmptyDataSetView *view = self.emptyDataSetView;
         // Configure empty dataset fade in display
         view.fadeInOnDisplay = [self cc_shouldFadeIn];
@@ -270,9 +268,7 @@ static char const * const kEmptyDataSetView = "emptyDataSetView";
         }
         
         // Notifies that the empty dataset view did appear
-        [self cc_didAppear];
-        NSLog(@"%@", @"cc_didAppear");
-    }else if (self.isEmptyDataSetVisible) {
+        [self cc_didAppear];    }else if (self.isEmptyDataSetVisible) {
         [self cc_invalidate];
     }
 }
@@ -612,7 +608,6 @@ static char const * const kEmptyDataSetView = "emptyDataSetView";
 - (void)cc_invalidate {
     // Notifies that the empty dataset view will disappear
     [self cc_willDisappear];
-    NSLog(@"%@", @"cc_willDisappear");
     if (self.emptyDataSetView) {
         [self.emptyDataSetView prepareForReuse];
         [self.emptyDataSetView removeFromSuperview];
@@ -624,7 +619,6 @@ static char const * const kEmptyDataSetView = "emptyDataSetView";
     
     // Notifies that the empty dataset view did disappear
     [self cc_didDisappear];
-    NSLog(@"%@", @"cc_didDisappear");
 }
 
 #pragma mark - Method Swizzling
