@@ -16,7 +16,6 @@
 		5E807E2D205F45BF007FCE88 /* CCEmptyDataSetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E807E2C205F45BF007FCE88 /* CCEmptyDataSetTests.m */; };
 		5E807E38205F45BF007FCE88 /* CCEmptyDataSetUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E807E37205F45BF007FCE88 /* CCEmptyDataSetUITests.m */; };
 		5E807E47205F4640007FCE88 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E807E46205F4640007FCE88 /* MainViewController.m */; };
-		5E807E4F205FA23C007FCE88 /* images.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E807E4E205FA23C007FCE88 /* images.bundle */; };
 		90388607593571496C879012 /* Pods_CCEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7449168F5434BCD7AD24629 /* Pods_CCEmptyDataSet.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +56,6 @@
 		5E807E39205F45BF007FCE88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E807E45205F4640007FCE88 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		5E807E46205F4640007FCE88 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		5E807E4E205FA23C007FCE88 /* images.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = images.bundle; sourceTree = "<group>"; };
 		F60410456D9D79CCDB7723B8 /* Pods-CCEmptyDataSet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCEmptyDataSet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CCEmptyDataSet/Pods-CCEmptyDataSet.debug.xcconfig"; sourceTree = "<group>"; };
 		F7449168F5434BCD7AD24629 /* Pods_CCEmptyDataSet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CCEmptyDataSet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -113,7 +111,6 @@
 		5E807E12205F45BE007FCE88 /* CCEmptyDataSet */ = {
 			isa = PBXGroup;
 			children = (
-				5E807E48205F484A007FCE88 /* CCEmptyDataSet */,
 				5E807E13205F45BF007FCE88 /* AppDelegate.h */,
 				5E807E14205F45BF007FCE88 /* AppDelegate.m */,
 				5E807E16205F45BF007FCE88 /* ViewController.h */,
@@ -145,14 +142,6 @@
 				5E807E39205F45BF007FCE88 /* Info.plist */,
 			);
 			path = CCEmptyDataSetUITests;
-			sourceTree = "<group>";
-		};
-		5E807E48205F484A007FCE88 /* CCEmptyDataSet */ = {
-			isa = PBXGroup;
-			children = (
-				5E807E4E205FA23C007FCE88 /* images.bundle */,
-			);
-			path = CCEmptyDataSet;
 			sourceTree = "<group>";
 		};
 		927CE864D6F52099780F1C00 /* Pods */ = {
@@ -284,7 +273,6 @@
 				5E807E20205F45BF007FCE88 /* LaunchScreen.storyboard in Resources */,
 				5E807E1D205F45BF007FCE88 /* Assets.xcassets in Resources */,
 				5E807E1B205F45BF007FCE88 /* Main.storyboard in Resources */,
-				5E807E4F205FA23C007FCE88 /* images.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
