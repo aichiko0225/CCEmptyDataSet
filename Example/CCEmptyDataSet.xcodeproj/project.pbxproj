@@ -16,8 +16,8 @@
 		5E807E2D205F45BF007FCE88 /* CCEmptyDataSetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E807E2C205F45BF007FCE88 /* CCEmptyDataSetTests.m */; };
 		5E807E38205F45BF007FCE88 /* CCEmptyDataSetUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E807E37205F45BF007FCE88 /* CCEmptyDataSetUITests.m */; };
 		5E807E47205F4640007FCE88 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E807E46205F4640007FCE88 /* MainViewController.m */; };
-		5E807E4C205F4896007FCE88 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E807E4B205F4896007FCE88 /* UIScrollView+EmptyDataSet.m */; };
 		5E807E4F205FA23C007FCE88 /* images.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E807E4E205FA23C007FCE88 /* images.bundle */; };
+		90388607593571496C879012 /* Pods_CCEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7449168F5434BCD7AD24629 /* Pods_CCEmptyDataSet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1810B69A4BF6B0186E7B93E1 /* Pods-CCEmptyDataSet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCEmptyDataSet.release.xcconfig"; path = "Pods/Target Support Files/Pods-CCEmptyDataSet/Pods-CCEmptyDataSet.release.xcconfig"; sourceTree = "<group>"; };
 		5E807E10205F45BE007FCE88 /* CCEmptyDataSet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCEmptyDataSet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E807E13205F45BF007FCE88 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5E807E14205F45BF007FCE88 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -56,10 +57,9 @@
 		5E807E39205F45BF007FCE88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E807E45205F4640007FCE88 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		5E807E46205F4640007FCE88 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		5E807E49205F485D007FCE88 /* CCEmptyDataSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCEmptyDataSet.h; sourceTree = "<group>"; };
-		5E807E4A205F4896007FCE88 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
-		5E807E4B205F4896007FCE88 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
 		5E807E4E205FA23C007FCE88 /* images.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = images.bundle; sourceTree = "<group>"; };
+		F60410456D9D79CCDB7723B8 /* Pods-CCEmptyDataSet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCEmptyDataSet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CCEmptyDataSet/Pods-CCEmptyDataSet.debug.xcconfig"; sourceTree = "<group>"; };
+		F7449168F5434BCD7AD24629 /* Pods_CCEmptyDataSet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CCEmptyDataSet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90388607593571496C879012 /* Pods_CCEmptyDataSet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +95,8 @@
 				5E807E2B205F45BF007FCE88 /* CCEmptyDataSetTests */,
 				5E807E36205F45BF007FCE88 /* CCEmptyDataSetUITests */,
 				5E807E11205F45BE007FCE88 /* Products */,
+				927CE864D6F52099780F1C00 /* Pods */,
+				C5632D60D47B9598D2AD0441 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,11 +151,25 @@
 			isa = PBXGroup;
 			children = (
 				5E807E4E205FA23C007FCE88 /* images.bundle */,
-				5E807E49205F485D007FCE88 /* CCEmptyDataSet.h */,
-				5E807E4A205F4896007FCE88 /* UIScrollView+EmptyDataSet.h */,
-				5E807E4B205F4896007FCE88 /* UIScrollView+EmptyDataSet.m */,
 			);
 			path = CCEmptyDataSet;
+			sourceTree = "<group>";
+		};
+		927CE864D6F52099780F1C00 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F60410456D9D79CCDB7723B8 /* Pods-CCEmptyDataSet.debug.xcconfig */,
+				1810B69A4BF6B0186E7B93E1 /* Pods-CCEmptyDataSet.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C5632D60D47B9598D2AD0441 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F7449168F5434BCD7AD24629 /* Pods_CCEmptyDataSet.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,9 +179,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5E807E3C205F45BF007FCE88 /* Build configuration list for PBXNativeTarget "CCEmptyDataSet" */;
 			buildPhases = (
+				15D03F357ABBE701907C5D8A /* [CP] Check Pods Manifest.lock */,
 				5E807E0C205F45BE007FCE88 /* Sources */,
 				5E807E0D205F45BE007FCE88 /* Frameworks */,
 				5E807E0E205F45BE007FCE88 /* Resources */,
+				0ADA7AD3750D30B6A926D79A /* [CP] Embed Pods Frameworks */,
+				FC3587284C96FEAA913C517B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -284,6 +304,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0ADA7AD3750D30B6A926D79A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CCEmptyDataSet/Pods-CCEmptyDataSet-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CCEmptyDataSet/CCEmptyDataSet.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CCEmptyDataSet.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CCEmptyDataSet/Pods-CCEmptyDataSet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		15D03F357ABBE701907C5D8A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CCEmptyDataSet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC3587284C96FEAA913C517B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CCEmptyDataSet/Pods-CCEmptyDataSet-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5E807E0C205F45BE007FCE88 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -293,7 +367,6 @@
 				5E807E23205F45BF007FCE88 /* main.m in Sources */,
 				5E807E15205F45BF007FCE88 /* AppDelegate.m in Sources */,
 				5E807E47205F4640007FCE88 /* MainViewController.m in Sources */,
-				5E807E4C205F4896007FCE88 /* UIScrollView+EmptyDataSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +527,7 @@
 		};
 		5E807E3D205F45BF007FCE88 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F60410456D9D79CCDB7723B8 /* Pods-CCEmptyDataSet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -469,6 +543,7 @@
 		};
 		5E807E3E205F45BF007FCE88 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1810B69A4BF6B0186E7B93E1 /* Pods-CCEmptyDataSet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;

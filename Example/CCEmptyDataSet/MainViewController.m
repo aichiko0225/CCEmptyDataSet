@@ -7,7 +7,7 @@
 //
 
 #import "MainViewController.h"
-#import "CCEmptyDataSet.h"
+#import <CCEmptyDataSet/CCEmptyDataSet.h>
 
 @interface MainViewController ()<CCEmptyDataSetSource, CCEmptyDataSetDelegate>
 

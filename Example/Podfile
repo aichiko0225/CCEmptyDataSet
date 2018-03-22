@@ -1,0 +1,10 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'CCEmptyDataSet' do
+platform :ios, '8.0'
+use_frameworks!
+
+pod 'CCEmptyDataSet'
+
+
+end
