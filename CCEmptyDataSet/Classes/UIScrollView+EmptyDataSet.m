@@ -113,7 +113,7 @@ static char const * const kEmptyDataSetView = "emptyDataSetView";
         }else {
             EmptyDataSetType type = [self cc_emptyDataSetType];
             if (type >= 0) {
-                NSArray<NSString *> *imageNames = @[@"carts", @"orders", @"search_none", @"search_refresh", @"activity"];
+                NSArray<NSString *> *imageNames = @[@"cc_carts", @"cc_orders", @"cc_search_none", @"cc_search_refresh", @"cc_activity"];
                 NSArray<NSString *> *titles = @[@"购物车空空如也", @"您还没有相关订单", @"没有搜索到商品, 换个搜索词试试", @"网络开小差了, 请刷新重试", @"暂无活动信息"];
                 
                 NSAttributedString *titleLabelString = [[NSAttributedString alloc] initWithString:[titles objectAtIndex:type] attributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1], NSFontAttributeName: [UIFont systemFontOfSize:15]}];
@@ -123,6 +123,10 @@ static char const * const kEmptyDataSetView = "emptyDataSetView";
                 
                 UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
                 
+                if (image == nil) {
+                   image = [UIImage imageNamed:[imageNames objectAtIndex:type]];
+                }
+
                 if (image) {
                     if ([image respondsToSelector:@selector(imageWithRenderingMode:)]) {
                         view.imageView.image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -166,9 +170,14 @@ static char const * const kEmptyDataSetView = "emptyDataSetView";
                     view.button.layer.borderWidth = 0.5;
                     view.button.frame = CGRectMake(0, 0, 200, 40);
                     NSString *path = [[NSBundle mainBundle] pathForResource:@"CCEmptyDataSet" ofType:@"bundle"];
-                    NSString *imagePath = [path stringByAppendingString:[NSString stringWithFormat:@"/%@", @"refresh_button"]];
+                    NSString *imagePath = [path stringByAppendingString:[NSString stringWithFormat:@"/%@", @"cc_refresh_button"]];
                     
                     UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
+
+                    if (image == nil) {
+                        image = [UIImage imageNamed:@"cc_refresh_button"];
+                    }
+                    
                     if (image) {
                         [view.button setImage:image forState:UIControlStateNormal];
                         view.button.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
