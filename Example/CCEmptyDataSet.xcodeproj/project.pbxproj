@@ -16,7 +16,7 @@
 		5E807E2D205F45BF007FCE88 /* CCEmptyDataSetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E807E2C205F45BF007FCE88 /* CCEmptyDataSetTests.m */; };
 		5E807E38205F45BF007FCE88 /* CCEmptyDataSetUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E807E37205F45BF007FCE88 /* CCEmptyDataSetUITests.m */; };
 		5E807E47205F4640007FCE88 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E807E46205F4640007FCE88 /* MainViewController.m */; };
-		90388607593571496C879012 /* Pods_CCEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7449168F5434BCD7AD24629 /* Pods_CCEmptyDataSet.framework */; };
+		BB3FC1BD911E52921BA78FB4 /* Pods_CCEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9464A823F57FAD2CD51AF85 /* Pods_CCEmptyDataSet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,8 +56,8 @@
 		5E807E39205F45BF007FCE88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E807E45205F4640007FCE88 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		5E807E46205F4640007FCE88 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		D9464A823F57FAD2CD51AF85 /* Pods_CCEmptyDataSet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CCEmptyDataSet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F60410456D9D79CCDB7723B8 /* Pods-CCEmptyDataSet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCEmptyDataSet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CCEmptyDataSet/Pods-CCEmptyDataSet.debug.xcconfig"; sourceTree = "<group>"; };
-		F7449168F5434BCD7AD24629 /* Pods_CCEmptyDataSet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CCEmptyDataSet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90388607593571496C879012 /* Pods_CCEmptyDataSet.framework in Frameworks */,
+				BB3FC1BD911E52921BA78FB4 /* Pods_CCEmptyDataSet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,7 +156,7 @@
 		C5632D60D47B9598D2AD0441 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F7449168F5434BCD7AD24629 /* Pods_CCEmptyDataSet.framework */,
+				D9464A823F57FAD2CD51AF85 /* Pods_CCEmptyDataSet.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -335,9 +335,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CCEmptyDataSet/Pods-CCEmptyDataSet-resources.sh",
+				"$PODS_CONFIGURATION_BUILD_DIR/CCEmptyDataSet/CCEmptyDataSet.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
