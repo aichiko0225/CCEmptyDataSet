@@ -174,12 +174,12 @@ static char const * const kEmptyDataSetView = "emptyDataSetView";
                     NSBundle *bundle = [NSBundle bundleForClass:NSClassFromString(@"CCEmptyDataSet")];
                     NSString *bundlePath = [bundle.resourcePath stringByAppendingString:@"/Frameworks/CCEmptyDataSet.framework/CCEmptyDataSet.bundle"];
                     NSBundle *bundle1 = [NSBundle bundleWithPath:bundlePath];
-                    UIImage *image = [UIImage imageNamed:[imageNames objectAtIndex:type] inBundle:bundle1 compatibleWithTraitCollection:nil];
+                    UIImage *image = [UIImage imageNamed:@"cc_refresh_button" inBundle:bundle1 compatibleWithTraitCollection:nil];
                     
                     if (image == nil) {
                         NSString *bundlePath = [bundle.resourcePath stringByAppendingString:@"/CCEmptyDataSet.bundle"];
                         NSBundle *bundle1 = [NSBundle bundleWithPath:bundlePath];
-                        image = [UIImage imageNamed:[imageNames objectAtIndex:type] inBundle:bundle1 compatibleWithTraitCollection:nil];
+                        image = [UIImage imageNamed:@"cc_refresh_button" inBundle:bundle1 compatibleWithTraitCollection:nil];
                     }
                     
                     if (image) {
