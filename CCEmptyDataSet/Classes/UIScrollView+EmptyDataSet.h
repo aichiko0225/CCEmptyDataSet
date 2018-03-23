@@ -52,6 +52,8 @@ typedef NS_ENUM(NSInteger, EmptyDataSetType) {
 
 @optional
 
+- (BOOL)showMaskViewForEmptyDataSet:(UIScrollView * _Nullable)scrollView;
+
 /**
  Provides 5 empty view display scenarios.
  🐟🐟🐟🐟🐟🐟🐟🐟🐟🐟🐟
