@@ -92,6 +92,10 @@ static char const * const kEmptyDataMaskView = "emptyDataMaskView";
                 [self addSubview:self.emptyDataMaskView];
             }
             [self.emptyDataMaskView bringSubviewToFront:view];
+        }else {
+            self.emptyDataMaskView.hidden = YES;
+            [self.emptyDataMaskView removeFromSuperview];
+            [self setEmptyDataMaskView:nil];
         }
         
         // Removing view resetting the view and its constraints it very important to guarantee a good state
@@ -272,7 +276,9 @@ static char const * const kEmptyDataMaskView = "emptyDataMaskView";
         }
         
         // Notifies that the empty dataset view did appear
-        [self cc_didAppear];    }else if (self.isEmptyDataSetVisible) {
+        [self cc_didAppear];
+        
+    }else if (self.isEmptyDataSetVisible) {
         [self cc_invalidate];
     }
 }
