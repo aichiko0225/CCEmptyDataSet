@@ -51,6 +51,7 @@ static float animationDuration = 1.0f;
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
+    [super drawRect:rect];
     if (_activityIndicatorView) {
         self.activityIndicatorView.center = self.center;
     }
