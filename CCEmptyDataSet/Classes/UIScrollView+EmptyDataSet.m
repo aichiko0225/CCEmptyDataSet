@@ -64,6 +64,11 @@ static char const * const kEmptyDataMaskView = "emptyDataMaskView";
 
 #pragma mark - Reload APIs (Private)
 
+- (void)drawRect:(CGRect)rect {
+    [super drawRect:rect];
+    
+}
+
 - (void)cc_reloadEmptyDataSet {
     if (![self cc_canDisplay]) {
         return;
@@ -90,6 +95,11 @@ static char const * const kEmptyDataMaskView = "emptyDataMaskView";
             self.emptyDataMaskView.hidden = NO;
             if (![self.subviews containsObject:self.emptyDataMaskView]) {
                 [self addSubview:self.emptyDataMaskView];
+                
+//                [self addConstraint:[NSLayoutConstraint constraintWithItem:self.emptyDataMaskView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
+//                [self addConstraint:[NSLayoutConstraint constraintWithItem:self.emptyDataMaskView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0]];
+//                [self addConstraint:[NSLayoutConstraint constraintWithItem:self.emptyDataMaskView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0]];
+//                [self addConstraint:[NSLayoutConstraint constraintWithItem:self.emptyDataMaskView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1.0 constant:0]];
             }
             [self.emptyDataMaskView bringSubviewToFront:view];
         }else {
@@ -113,16 +123,7 @@ static char const * const kEmptyDataMaskView = "emptyDataMaskView";
                 
                 NSAttributedString *titleLabelString = [[NSAttributedString alloc] initWithString:[titles objectAtIndex:type] attributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1], NSFontAttributeName: [UIFont systemFontOfSize:15]}];
                 
-                NSBundle *bundle = [NSBundle bundleForClass:NSClassFromString(@"CCEmptyDataSet")];
-                NSString *bundlePath = [bundle.resourcePath stringByAppendingString:@"/Frameworks/CCEmptyDataSet.framework/CCEmptyDataSet.bundle"];
-                NSBundle *bundle1 = [NSBundle bundleWithPath:bundlePath];
-                UIImage *image = [UIImage imageNamed:[imageNames objectAtIndex:type] inBundle:bundle1 compatibleWithTraitCollection:nil];
-                    
-                if (image == nil) {
-                    NSString *bundlePath = [bundle.resourcePath stringByAppendingString:@"/CCEmptyDataSet.bundle"];
-                    NSBundle *bundle1 = [NSBundle bundleWithPath:bundlePath];
-                    image = [UIImage imageNamed:[imageNames objectAtIndex:type] inBundle:bundle1 compatibleWithTraitCollection:nil];
-                }
+                UIImage *image = [UIImage cc_imageNamed:[imageNames objectAtIndex:type]];
 
                 if (image) {
                     if ([image respondsToSelector:@selector(imageWithRenderingMode:)]) {
@@ -166,16 +167,8 @@ static char const * const kEmptyDataMaskView = "emptyDataMaskView";
                     view.button.layer.borderColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1].CGColor;
                     view.button.layer.borderWidth = 0.5;
                     view.button.frame = CGRectMake(0, 0, 200, 40);
-                    NSBundle *bundle = [NSBundle bundleForClass:NSClassFromString(@"CCEmptyDataSet")];
-                    NSString *bundlePath = [bundle.resourcePath stringByAppendingString:@"/Frameworks/CCEmptyDataSet.framework/CCEmptyDataSet.bundle"];
-                    NSBundle *bundle1 = [NSBundle bundleWithPath:bundlePath];
-                    UIImage *image = [UIImage imageNamed:@"cc_refresh_button" inBundle:bundle1 compatibleWithTraitCollection:nil];
                     
-                    if (image == nil) {
-                        NSString *bundlePath = [bundle.resourcePath stringByAppendingString:@"/CCEmptyDataSet.bundle"];
-                        NSBundle *bundle1 = [NSBundle bundleWithPath:bundlePath];
-                        image = [UIImage imageNamed:@"cc_refresh_button" inBundle:bundle1 compatibleWithTraitCollection:nil];
-                    }
+                    UIImage *image = [UIImage cc_imageNamed:@"cc_refresh_button"];
                     
                     if (image) {
                         [view.button setImage:image forState:UIControlStateNormal];
@@ -308,6 +301,8 @@ static char const * const kEmptyDataMaskView = "emptyDataMaskView";
     if (view == nil) {
         view = [[CCEmptyDataMaskView alloc] initWithFrame:self.bounds];
         view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+//        view.clockwise = NO;
+//        view.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
         view.hidden = YES;
         view.backgroundColor = [UIColor whiteColor];
         

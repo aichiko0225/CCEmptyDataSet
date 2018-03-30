@@ -1,8 +1,8 @@
 //
 //  CCEmptyDataSetView.h
-//  AFNetworking
+//  CCEmptyDataSet
 //
-//  Created by 赵光飞 on 2018/3/23.
+//  Created by ash on 2018/3/23.
 //
 
 #import <UIKit/UIKit.h>

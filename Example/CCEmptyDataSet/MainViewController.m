@@ -13,6 +13,8 @@
 
 @property (nonatomic, assign) BOOL isRefresh;
 
+@property (nonatomic, assign) BOOL showMasks;
+
 @end
 
 @implementation MainViewController
@@ -26,6 +28,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     _isRefresh = NO;
+    _showMasks = YES;
     self.tableView.tableFooterView = [[UIView alloc] init];
     
     self.tableView.emptyDataSetSource = self;
@@ -36,10 +39,12 @@
     [refreshControl addTarget:self action:@selector(refreshAction) forControlEvents:UIControlEventValueChanged];
     self.tableView.refreshControl = refreshControl;
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         __strong __typeof(weakSelf)strongSelf = weakSelf;
+        _showMasks = NO;
         [strongSelf.tableView reloadData];
     });
+    
 }
 
 - (void)refreshAction {
@@ -48,6 +53,7 @@
         [self.tableView reloadData];
         _isRefresh = !_isRefresh;
     });
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,6 +76,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
     return _isRefresh ? 2: 0;
+}
+
+- (BOOL)showMaskViewForEmptyDataSet:(UIScrollView *)scrollView {
+    return _showMasks;
 }
 
 - (EmptyDataSetType)showTypeForEmptyDataSet:(UIScrollView *)scrollView {
