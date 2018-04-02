@@ -64,11 +64,6 @@ static char const * const kEmptyDataMaskView = "emptyDataMaskView";
 
 #pragma mark - Reload APIs (Private)
 
-- (void)drawRect:(CGRect)rect {
-    [super drawRect:rect];
-    
-}
-
 - (void)cc_reloadEmptyDataSet {
     if (![self cc_canDisplay]) {
         return;
