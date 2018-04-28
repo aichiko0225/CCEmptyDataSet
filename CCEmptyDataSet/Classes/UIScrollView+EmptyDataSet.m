@@ -475,7 +475,7 @@ static char const * const kEmptyDataMaskView = "emptyDataMaskView";
         if (color) NSAssert([color isKindOfClass:[UIColor class]], @"You must return a valid UIColor object for -backgroundColorForEmptyDataSet:");
         return color;
     }
-    return [UIColor clearColor];
+    return [UIColor whiteColor];
 }
 
 - (UIView *)cc_customView {
