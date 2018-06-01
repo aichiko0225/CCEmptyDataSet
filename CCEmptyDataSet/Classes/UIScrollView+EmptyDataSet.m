@@ -113,8 +113,8 @@ static char const * const kEmptyDataMaskView = "emptyDataMaskView";
         }else {
             EmptyDataSetType type = [self cc_emptyDataSetType];
             if (type >= 0) {
-                NSArray<NSString *> *imageNames = @[@"cc_carts", @"cc_orders", @"cc_search_none", @"cc_search_refresh", @"cc_activity"];
-                NSArray<NSString *> *titles = @[@"购物车空空如也", @"您还没有相关订单", @"没有搜索到商品, 换个搜索词试试", @"网络开小差了, 请刷新重试", @"暂无活动信息"];
+                NSArray<NSString *> *imageNames = @[@"cc_carts_", @"cc_orders_", @"cc_search_", @"cc_search_", @"cc_activity_", @"cc_coupons_"];
+                NSArray<NSString *> *titles = @[@"购物车空空如也", @"您还没有相关订单", @"没有搜索到商品, 换个搜索词试试", @"网络开小差了, 请刷新重试", @"暂无活动信息", @"暂无优惠券"];
                 
                 NSAttributedString *titleLabelString = [[NSAttributedString alloc] initWithString:[titles objectAtIndex:type] attributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1], NSFontAttributeName: [UIFont systemFontOfSize:15]}];
                 
@@ -131,9 +131,9 @@ static char const * const kEmptyDataMaskView = "emptyDataMaskView";
                 }
                 view.titleLabel.attributedText = titleLabelString;
                 
-                CGFloat navigationHeight = [[UIApplication sharedApplication] statusBarFrame].size.height + 44;
+//                CGFloat navigationHeight = [[UIApplication sharedApplication] statusBarFrame].size.height + 44;
                 
-                view.verticalOffset = -navigationHeight;
+//                view.verticalOffset = -navigationHeight;
                 
                 view.verticalSpace = 30;
                 

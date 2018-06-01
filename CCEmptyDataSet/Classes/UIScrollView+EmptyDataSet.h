@@ -24,7 +24,9 @@ typedef NS_ENUM(NSInteger, EmptyDataSetType) {
     /// search error with button
     EmptyDataSetTypeSearchError,
     /// activity without button
-    EmptyDataSetTypeActivity
+    EmptyDataSetTypeActivity,
+    /// counpons without button
+    EmptyDataSetTypeCounpons
 };
 
 
