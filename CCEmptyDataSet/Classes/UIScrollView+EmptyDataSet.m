@@ -119,7 +119,7 @@ static char const * const kEmptyDataMaskView = "emptyDataMaskView";
                 NSAttributedString *titleLabelString = [[NSAttributedString alloc] initWithString:[titles objectAtIndex:type] attributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1], NSFontAttributeName: [UIFont systemFontOfSize:15]}];
                 
                 UIImage *image = [UIImage cc_imageNamed:[imageNames objectAtIndex:type]];
-
+                
                 if (image) {
                     if ([image respondsToSelector:@selector(imageWithRenderingMode:)]) {
                         view.imageView.image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -131,15 +131,12 @@ static char const * const kEmptyDataMaskView = "emptyDataMaskView";
                 }
                 view.titleLabel.attributedText = titleLabelString;
                 
-//                CGFloat navigationHeight = [[UIApplication sharedApplication] statusBarFrame].size.height + 44;
+                CGFloat navigationHeight = [[UIApplication sharedApplication] statusBarFrame].size.height + 44;
                 
-//                view.verticalOffset = -navigationHeight;
-                
-                view.verticalSpace = 30;
-                
+                view.verticalOffset = [self cc_verticalOffset] - navigationHeight;
                 
                 if (type == EmptyDataSetTypeCarts) {
-                    view.buttonVerticalSpace = 60;
+                    view.buttonVerticalSpace = 40;
                     [view.button setTitle:@"去首页逛逛" forState:UIControlStateNormal];
                     [view.button setTitleColor:[UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1] forState:UIControlStateNormal];
                     [view.button setTitleColor:[UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1] forState:UIControlStateHighlighted];
@@ -151,7 +148,7 @@ static char const * const kEmptyDataMaskView = "emptyDataMaskView";
                     view.button.frame = CGRectMake(0, 0, 200, 40);
                     
                 }else if (type == EmptyDataSetTypeSearchError) {
-                    view.buttonVerticalSpace = 60;
+                    view.buttonVerticalSpace = 40;
                     
                     [view.button setTitle:@"刷新" forState:UIControlStateNormal];
                     [view.button setTitleColor:[UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1] forState:UIControlStateNormal];
@@ -326,6 +323,20 @@ static char const * const kEmptyDataMaskView = "emptyDataMaskView";
     if (self.emptyDataSetSource && [self.emptyDataSetSource conformsToProtocol:@protocol(CCEmptyDataSetSource)]) {
         if ([self isKindOfClass:[UITableView class]] || [self isKindOfClass:[UICollectionView class]] || [self isKindOfClass:[UIScrollView class]]) {
             return YES;
+        }
+    }
+    return NO;
+}
+
+- (BOOL)cc_showHeaderView {
+    if ([self isKindOfClass:[UITableView class]]) {
+        UITableView *tableView = (UITableView *)self;
+        if (tableView.tableHeaderView != nil) {
+            CGFloat height = tableView.tableHeaderView.bounds.size.height;
+            if (height == 0) {
+                height = tableView.tableHeaderView.intrinsicContentSize.height;
+            }
+            return height > 20;
         }
     }
     return NO;

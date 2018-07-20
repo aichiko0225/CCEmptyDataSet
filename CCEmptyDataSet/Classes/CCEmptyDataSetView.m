@@ -213,7 +213,7 @@
         CGFloat width = CGRectGetWidth(self.frame) ? : CGRectGetWidth([UIScreen mainScreen].bounds);
         
         CGFloat padding = roundf(width/16.0);
-        CGFloat verticalSpace = self.verticalSpace ? : 11.0; // Default is 11 pts
+        CGFloat verticalSpace = self.verticalSpace ? : 5.0; // Default is 11 pts
         
         NSMutableArray<NSString *> *subviewStrings = [NSMutableArray array];
         NSMutableDictionary *views = [NSMutableDictionary dictionary];
