@@ -10,8 +10,13 @@
 @implementation UIImage (CCNamed)
 
 + (nullable UIImage *)cc_imageNamed:(NSString *)name {
-    
-    NSBundle *bundle = [NSBundle bundleForClass:NSClassFromString(@"CCEmptyDataSet")];
+    static NSBundle *bundle = nil;
+    Class class = NSClassFromString(@"CCEmptyDataSet");
+    if (class == nil) {
+        bundle = [NSBundle mainBundle];
+    }else {
+        bundle = [NSBundle bundleForClass:class];
+    }
     NSString *bundlePath = [bundle.resourcePath stringByAppendingString:@"/Frameworks/CCEmptyDataSet.framework/CCEmptyDataSet.bundle"];
     NSBundle *bundle1 = [NSBundle bundleWithPath:bundlePath];
     UIImage *image = [UIImage imageNamed:name inBundle:bundle1 compatibleWithTraitCollection:nil];
