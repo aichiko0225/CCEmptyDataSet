@@ -24,7 +24,6 @@
 
 @interface CCEmptyDataMaskView : UIView
 
-
 /**
  animation stop hide imageView
  defualt YES

@@ -7,6 +7,8 @@
 
 #import "CCEmptyDataMaskView.h"
 
+
+
 @implementation UIImage (CCNamed)
 
 + (nullable UIImage *)cc_imageNamed:(NSString *)name {
@@ -36,7 +38,7 @@
 
 @end
 
-static float animationDuration = 1.0f;
+// static float animationDuration = 1.0f;
 
 @interface CCEmptyDataMaskView ()<CAAnimationDelegate>
 
@@ -78,12 +80,14 @@ static float animationDuration = 1.0f;
         _HideOnStop = YES;
         _clockwise = YES;
         
-        UIImage *centerImage = [UIImage cc_imageNamed:@"cc_loading_logo"];
-        UIImage *animateImage = [UIImage cc_imageNamed:@"cc_loading"];
+        UIImage *animateImage = [UIImage cc_imageNamed:@"cc_loadingShadow"];
+        UIImage *centerImage = [UIImage cc_imageNamed:@"cc_loading2_00"];
         
         if (centerImage && animateImage) {
-            _centerImageView = [[UIImageView alloc] initWithImage:[UIImage cc_imageNamed:@"cc_loading_logo"]];
-            _animateImageView = [[UIImageView alloc] initWithImage:[UIImage cc_imageNamed:@"cc_loading"]];
+            
+            _animateImageView = [[UIImageView alloc] initWithImage:animateImage];
+            _centerImageView = [[UIImageView alloc] initWithImage:centerImage];
+            
         }else {
             _activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
             _activityIndicatorView.color = [UIColor colorWithRed:248/255.0 green:110/255.0 blue:80/255.0 alpha:1];
@@ -91,14 +95,48 @@ static float animationDuration = 1.0f;
             _activityIndicatorView.hidesWhenStopped = YES;
             [_activityIndicatorView startAnimating];
         }
-        
-        [self addSubview:_centerImageView];
         [self addSubview:_animateImageView];
+        [self addSubview:_centerImageView];
+        CGFloat scrollScale = ([UIScreen mainScreen].bounds.size.width)/375.0;
+        CGSize size1 = CGSizeMake(60*scrollScale, 60*scrollScale);
+        _animateImageView.frame = CGRectMake(0, 0, size1.width, size1.height);
+        _centerImageView.frame = CGRectMake(0, 0, size1.width * 0.8, size1.height * 0.8);
+        if (_centerImageView) {
+            _centerImageView.center = self.center;
+            _animateImageView.center = self.center;
+        }
     }
     return self;
 }
 
+- (NSArray<UIImage *> *)loadingImageList {
+    NSMutableArray<UIImage *> *arrayM = [NSMutableArray array];
+    for (int i = 0; i <= 53; i++) {
+        UIImage *image = [UIImage cc_imageNamed:[NSString stringWithFormat:@"cc_loading2_%02d",i]];
+        if (image) {
+            [arrayM addObject:image];
+        }
+    }
+    return arrayM;
+}
+
 - (void)startAnimation {
+    
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
+    NSArray<UIImage *> *arrayM = [self loadingImageList];
+    NSMutableArray *contents = [NSMutableArray array];
+    for(NSUInteger i = 0; i < arrayM.count; i++) {
+        UIImage *img = arrayM[i];
+        CGImageRef cgimg = img.CGImage;
+        [contents addObject:(__bridge UIImage *)cgimg];
+    }
+    animation.values = contents;
+    animation.duration = arrayM.count/50 * 1.6;
+    animation.repeatCount = MAXFLOAT;
+    animation.delegate = self;
+    [_centerImageView.layer addAnimation:animation forKey:@"loadingImageList"];
+    
+    /*
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
     //默认是顺时针效果，若将fromValue和toValue的值互换，则为逆时针效果
     animation.fromValue = [NSNumber numberWithFloat:_clockwise ? 0: 2*M_PI];
@@ -107,8 +145,8 @@ static float animationDuration = 1.0f;
     animation.repeatCount = ULLONG_MAX;
     animation.delegate = self;
     [_animateImageView.layer addAnimation:animation forKey:@"rotationAnimation"];
+     */
 }
-
 
 - (void)animationDidStart:(CAAnimation *)anim {
     if (_delegate && [self.delegate respondsToSelector:@selector(CCEmptyDataMaskViewStartAnimation:)]) {
@@ -125,6 +163,5 @@ static float animationDuration = 1.0f;
         _animateImageView.hidden = YES;
     }
 }
-
 
 @end

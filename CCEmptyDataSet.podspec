@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CCEmptyDataSet'
-  s.version          = '0.2.6'
+  s.version          = '0.3.0'
   s.summary          = 'CCEmptyDataSet for UITableView & UICollectionView'
 
 # This description is used to generate tags and improve search results.
@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
   s.source_files = 'CCEmptyDataSet/Classes/*.{h,m}'
   
   s.resource_bundles = {
-    'CCEmptyDataSet' => ['CCEmptyDataSet/images/*.png']
+    'CCEmptyDataSet' => ['CCEmptyDataSet/images/*.png', 'CCEmptyDataSet/images/loading/*.png']
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
