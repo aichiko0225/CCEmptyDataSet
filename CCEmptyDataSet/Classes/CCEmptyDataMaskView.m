@@ -6,8 +6,7 @@
 //
 
 #import "CCEmptyDataMaskView.h"
-
-
+#import "CCEmptyDataSet.h"
 
 @implementation UIImage (CCNamed)
 
@@ -121,9 +120,18 @@
 }
 
 - (void)startAnimation {
+    NSArray<UIImage *> *arrayM = [self loadingImageList];
+    NSString *key = maskViewDuration_Key;
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *duration_number = [userDefaults objectForKey:key];
+    CGFloat duration = arrayM.count/50 * 1.6;
+    if (duration_number) {
+        duration = [duration_number floatValue];
+    }
     
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
-    NSArray<UIImage *> *arrayM = [self loadingImageList];
+    
     NSMutableArray *contents = [NSMutableArray array];
     for(NSUInteger i = 0; i < arrayM.count; i++) {
         UIImage *img = arrayM[i];
@@ -131,7 +139,7 @@
         [contents addObject:(__bridge UIImage *)cgimg];
     }
     animation.values = contents;
-    animation.duration = arrayM.count/50 * 1.6;
+    animation.duration = duration;
     animation.repeatCount = MAXFLOAT;
     animation.delegate = self;
     [_centerImageView.layer addAnimation:animation forKey:@"loadingImageList"];

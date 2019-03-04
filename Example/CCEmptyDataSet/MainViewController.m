@@ -45,6 +45,9 @@
         [strongSelf.tableView reloadData];
     });
     
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:0.9] forKey:maskViewDuration_Key];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
 }
 
 - (void)refreshAction {

@@ -9,6 +9,8 @@
 #ifndef CCEmptyDataSet_h
 #define CCEmptyDataSet_h
 
+static NSString *maskViewDuration_Key = @"maskViewDuration_Key";
+
 #if __has_include(<CCEmptyDataSet/UIScrollView+EmptyDataSet.h>)
 #import <CCEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #else
