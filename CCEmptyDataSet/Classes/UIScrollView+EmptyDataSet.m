@@ -292,8 +292,8 @@ static char const * const kEmptyDataMaskView = "emptyDataMaskView";
     CCEmptyDataMaskView *view = objc_getAssociatedObject(self, kEmptyDataMaskView);
     if (view == nil) {
         view = [[CCEmptyDataMaskView alloc] initWithFrame:self.bounds];
-        view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-//        view.clockwise = NO;
+        view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        view.clockwise = NO;
 //        view.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
         view.hidden = YES;
         view.backgroundColor = [UIColor whiteColor];

@@ -8,6 +8,8 @@
 #import "CCEmptyDataMaskView.h"
 #import "CCEmptyDataSet.h"
 
+NSString *const maskViewDuration_Key = @"maskViewDuration_Key";
+
 @implementation UIImage (CCNamed)
 
 + (nullable UIImage *)cc_imageNamed:(NSString *)name {
@@ -18,12 +20,16 @@
     }else {
         bundle = [NSBundle bundleForClass:class];
     }
-    NSString *bundlePath = [bundle.resourcePath stringByAppendingString:@"/Frameworks/CCEmptyDataSet.framework/CCEmptyDataSet.bundle"];
+    // bundleName
+    
+    NSString *bundleName = [[bundle infoDictionary] objectForKey:@"CFBundleName"];
+    NSString *bundlePath = [bundle.resourcePath stringByAppendingString:[NSString stringWithFormat:@"/Frameworks/%@.framework/%@.bundle", bundleName, bundleName]];
+    
     NSBundle *bundle1 = [NSBundle bundleWithPath:bundlePath];
     UIImage *image = [UIImage imageNamed:name inBundle:bundle1 compatibleWithTraitCollection:nil];
     
     if (image == nil) {
-        NSString *bundlePath = [bundle.resourcePath stringByAppendingString:@"/CCEmptyDataSet.bundle"];
+        NSString *bundlePath = [bundle.resourcePath stringByAppendingString:[NSString stringWithFormat:@"/%@.bundle", bundleName]];
         NSBundle *bundle1 = [NSBundle bundleWithPath:bundlePath];
         image = [UIImage imageNamed:name inBundle:bundle1 compatibleWithTraitCollection:nil];
     }
@@ -76,7 +82,7 @@
     if (self) {
         
         
-        _HideOnStop = YES;
+        _hideOnStop = YES;
         _clockwise = YES;
         
         UIImage *animateImage = [UIImage cc_imageNamed:@"cc_loadingShadow"];
@@ -166,7 +172,7 @@
     if (_delegate && [self.delegate respondsToSelector:@selector(CCEmptyDataMaskViewStopAnimation:)]) {
         [self.delegate CCEmptyDataMaskViewStopAnimation:self];
     }
-    if (_HideOnStop) {
+    if (_hideOnStop) {
         _centerImageView.hidden = YES;
         _animateImageView.hidden = YES;
     }

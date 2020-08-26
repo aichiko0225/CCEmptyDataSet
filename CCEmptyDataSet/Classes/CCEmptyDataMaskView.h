@@ -9,6 +9,8 @@
 
 @interface UIImage (CCNamed)
 
+/// imageNamed from Bundle
+/// @param name imageName
 + (nullable UIImage *)cc_imageNamed:(nullable NSString *)name;
 
 @end
@@ -28,7 +30,7 @@
  animation stop hide imageView
  defualt YES
  */
-@property (nonatomic, assign) BOOL HideOnStop;
+@property (nonatomic, assign) BOOL hideOnStop;
 
 /**
  animation clockwise rotation

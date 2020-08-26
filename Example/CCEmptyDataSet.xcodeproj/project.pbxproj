@@ -298,7 +298,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-CCEmptyDataSet/Pods-CCEmptyDataSet-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-CCEmptyDataSet/Pods-CCEmptyDataSet-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CCEmptyDataSet/CCEmptyDataSet.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -307,7 +307,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CCEmptyDataSet/Pods-CCEmptyDataSet-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CCEmptyDataSet/Pods-CCEmptyDataSet-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		15D03F357ABBE701907C5D8A /* [CP] Check Pods Manifest.lock */ = {

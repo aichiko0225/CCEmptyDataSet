@@ -30,7 +30,6 @@ typedef NS_ENUM(NSInteger, EmptyDataSetType) {
     EmptyDataSetTypeCounpons
 };
 
-
 /**
  A drop-in UITableView/UICollectionView superclass category for showing empty datasets whenever the view has no content to display.
  @discussion It will work automatically, by just conforming to CCEmptyDataSetSource, and returning the data you want to show.
@@ -55,6 +54,9 @@ typedef NS_ENUM(NSInteger, EmptyDataSetType) {
 
 @optional
 
+/**
+return YES to display MaskView
+*/
 - (BOOL)showMaskViewForEmptyDataSet:(UIScrollView * _Nullable)scrollView;
 
 /**
