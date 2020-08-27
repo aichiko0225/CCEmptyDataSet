@@ -112,62 +112,11 @@ static char const * const kEmptyDataMaskView = "emptyDataMaskView";
             view.customView = customView;
         }else {
             EmptyDataSetType type = [self cc_emptyDataSetType];
-            if (type >= 0) {
-                NSArray<NSString *> *imageNames = @[@"cc_carts_", @"cc_orders_", @"cc_search_", @"cc_search_", @"cc_activity_", @"cc_coupons_"];
-                NSArray<NSString *> *titles = @[@"购物车空空如也", @"您还没有相关订单", @"没有搜索到商品, 换个搜索词试试", @"网络开小差了, 请刷新重试", @"活动暂未开始，敬请期待", @"暂无优惠券"];
-                
-                NSAttributedString *titleLabelString = [[NSAttributedString alloc] initWithString:[titles objectAtIndex:type] attributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1], NSFontAttributeName: [UIFont systemFontOfSize:15]}];
-                
-                UIImage *image = [UIImage cc_imageNamed:[imageNames objectAtIndex:type]];
-                
-                if (image) {
-                    if ([image respondsToSelector:@selector(imageWithRenderingMode:)]) {
-                        view.imageView.image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-                    }
-                    else {
-                        // iOS 6 fallback: insert code to convert imaged if needed
-                        view.imageView.image = image;
-                    }
-                }
-                view.titleLabel.attributedText = titleLabelString;
-                
+            
+            BOOL config_s = [CCEmptyDataSetTypeProvider configureEmptyViewWithType:type emptyView:view];
+            if (config_s) {
                 CGFloat navigationHeight = [[UIApplication sharedApplication] statusBarFrame].size.height + 44;
-                
                 view.verticalOffset = [self cc_verticalOffset] - navigationHeight;
-                
-                if (type == EmptyDataSetTypeCarts) {
-                    view.buttonVerticalSpace = 40;
-                    [view.button setTitle:@"去首页逛逛" forState:UIControlStateNormal];
-                    [view.button setTitleColor:[UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1] forState:UIControlStateNormal];
-                    [view.button setTitleColor:[UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1] forState:UIControlStateHighlighted];
-                    view.button.titleLabel.font = [UIFont systemFontOfSize:15];
-                    view.button.layer.masksToBounds = YES;
-                    view.button.layer.cornerRadius = 5.0;
-                    view.button.layer.borderColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1].CGColor;
-                    view.button.layer.borderWidth = 0.5;
-                    view.button.frame = CGRectMake(0, 0, 200, 40);
-                    
-                }else if (type == EmptyDataSetTypeSearchError) {
-                    view.buttonVerticalSpace = 40;
-                    
-                    [view.button setTitle:@"刷新" forState:UIControlStateNormal];
-                    [view.button setTitleColor:[UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1] forState:UIControlStateNormal];
-                    [view.button setTitleColor:[UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1] forState:UIControlStateHighlighted];
-                    view.button.titleLabel.font = [UIFont systemFontOfSize:15];
-                    view.button.layer.masksToBounds = YES;
-                    view.button.layer.cornerRadius = 5.0;
-                    view.button.layer.borderColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1].CGColor;
-                    view.button.layer.borderWidth = 0.5;
-                    view.button.frame = CGRectMake(0, 0, 200, 40);
-                    
-                    UIImage *image = [UIImage cc_imageNamed:@"cc_refresh_button"];
-                    
-                    if (image) {
-                        [view.button setImage:image forState:UIControlStateNormal];
-                        view.button.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
-                    }
-                }
-                
                 /// 如果实现了代理，title会覆盖掉原来默认的title显示
                 // Get the data from the data source
                 NSAttributedString *titleLabelString1 = [self cc_titleLabelString];

@@ -28,7 +28,7 @@ CCEmptyDataSet is available under the MIT license. See the LICENSE file for more
 ### UIScrollView 的空视图展示
 
 这个功能其实已经有一个很优秀的库了
-[DZNEmptyDataSet](https://github.com/dzenbot/DZNEmptyDataSet/tree/master/DZNEmptyDataSet)  
+[DZNEmptyDataSet](https://github.com/dzenbot/DZNEmptyDataSet)  
 
 我重新优化了文件结构，加入了maskView的功能
 
@@ -57,4 +57,158 @@ return YES to display MaskView
 
 ### 使用方法
 
-其他的基础请参考[DZNEmptyDataSet](https://github.com/dzenbot/DZNEmptyDataSet/tree/master/DZNEmptyDataSet)
+其他的基础请参考[DZNEmptyDataSet](https://github.com/dzenbot/DZNEmptyDataSet)
+
+### Import
+
+```objc
+#import "UIScrollView+EmptyDataSet.h"
+```
+
+Unless you are importing as a framework, then do:
+
+```objc
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+```
+
+### Protocol Conformance
+
+Conform to datasource and/or delegate.
+
+```objc
+@interface MainViewController : UITableViewController <CCEmptyDataSetSource, CCEmptyDataSetDelegate>
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    self.tableView.emptyDataSetSource = self;
+    self.tableView.emptyDataSetDelegate = self;
+    
+    // A little trick for removing the cell separators
+    self.tableView.tableFooterView = [UIView new];
+}
+```
+
+### Data Source Implementation
+
+Return the content you want to show on the empty state, and take advantage of NSAttributedString features to customise the text appearance.
+
+The image for the empty state:
+
+```objc
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"empty_placeholder"];
+}
+```
+
+The attributed string for the title of the empty state:
+
+```objc
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = @"Please Allow Photo Access";
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f],
+                                 NSForegroundColorAttributeName: [UIColor darkGrayColor]};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+```
+
+The attributed string for the description of the empty state:
+
+```objc
+- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = @"This allows you to share photos from your library and save photos to your camera roll.";
+    
+    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
+    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+    paragraph.alignment = NSTextAlignmentCenter;
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:14.0f],
+                                 NSForegroundColorAttributeName: [UIColor lightGrayColor],
+                                 NSParagraphStyleAttributeName: paragraph};
+                                 
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];                      
+}
+```
+
+The attributed string to be used for the specified button state:
+
+```objc
+- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
+{
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f]};
+
+    return [[NSAttributedString alloc] initWithString:@"Continue" attributes:attributes];
+}
+```
+
+or the image to be used for the specified button state:
+
+```objc
+- (UIImage *)buttonImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
+{
+    return [UIImage imageNamed:@"button_image"];
+}
+```
+
+The background color for the empty state:
+
+```objc
+- (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIColor whiteColor];
+}
+```
+
+If you need a more complex layout, you can return a custom view instead:
+
+```objc
+- (UIView *)customViewForEmptyDataSet:(UIScrollView *)scrollView
+{
+    UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [activityView startAnimating];
+    return activityView;
+}
+```
+
+The image view animation
+
+```objc
+- (CAAnimation *)imageAnimationForEmptyDataSet:(UIScrollView *)scrollView
+{
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath: @"transform"];
+    
+    animation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+    animation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeRotation(M_PI_2, 0.0, 0.0, 1.0)];
+    
+    animation.duration = 0.25;
+    animation.cumulative = YES;
+    animation.repeatCount = MAXFLOAT;
+    
+    return animation;
+}
+```
+
+Additionally, you can also adjust the vertical alignment of the content view (ie: useful when there is tableHeaderView visible):
+
+```objc
+- (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return -self.tableView.tableHeaderView.frame.size.height/2.0f;
+}
+```
+
+Finally, you can separate components from each other (default separation is 11 pts):
+
+```objc
+- (CGFloat)spaceHeightForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return 20.0f;
+}
+```
+

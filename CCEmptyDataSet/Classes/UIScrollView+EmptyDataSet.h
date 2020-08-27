@@ -7,28 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CCEmptyDataSetType.h"
 
 @protocol CCEmptyDataSetSource;
 @protocol CCEmptyDataSetDelegate;
-
-/**
- Provides 5 empty view display scenarios.
- Default is EmptyDataSetTypeSearchError, EmptyDataSetTypeSearchNone
- */
-typedef NS_ENUM(NSInteger, EmptyDataSetType) {
-    /// carts with button
-    EmptyDataSetTypeCarts = 0,
-    /// orders without button
-    EmptyDataSetTypeOrders,
-    /// search no data without button
-    EmptyDataSetTypeSearchNone,
-    /// search error with button
-    EmptyDataSetTypeSearchError,
-    /// activity without button
-    EmptyDataSetTypeActivity,
-    /// counpons without button
-    EmptyDataSetTypeCounpons
-};
 
 /**
  A drop-in UITableView/UICollectionView superclass category for showing empty datasets whenever the view has no content to display.
