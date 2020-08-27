@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E64D14E24F75CCA0040BCB4 /* CCEmptyDataSetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E64D14D24F75CCA0040BCB4 /* CCEmptyDataSetManager.m */; };
 		5E807E15205F45BF007FCE88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E807E14205F45BF007FCE88 /* AppDelegate.m */; };
 		5E807E18205F45BF007FCE88 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E807E17205F45BF007FCE88 /* ViewController.m */; };
 		5E807E1B205F45BF007FCE88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E807E19205F45BF007FCE88 /* Main.storyboard */; };
@@ -38,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		1810B69A4BF6B0186E7B93E1 /* Pods-CCEmptyDataSet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCEmptyDataSet.release.xcconfig"; path = "Pods/Target Support Files/Pods-CCEmptyDataSet/Pods-CCEmptyDataSet.release.xcconfig"; sourceTree = "<group>"; };
+		5E64D14C24F75CCA0040BCB4 /* CCEmptyDataSetManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCEmptyDataSetManager.h; sourceTree = "<group>"; };
+		5E64D14D24F75CCA0040BCB4 /* CCEmptyDataSetManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCEmptyDataSetManager.m; sourceTree = "<group>"; };
 		5E807E10205F45BE007FCE88 /* CCEmptyDataSet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCEmptyDataSet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E807E13205F45BF007FCE88 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5E807E14205F45BF007FCE88 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -117,6 +120,8 @@
 				5E807E17205F45BF007FCE88 /* ViewController.m */,
 				5E807E45205F4640007FCE88 /* MainViewController.h */,
 				5E807E46205F4640007FCE88 /* MainViewController.m */,
+				5E64D14C24F75CCA0040BCB4 /* CCEmptyDataSetManager.h */,
+				5E64D14D24F75CCA0040BCB4 /* CCEmptyDataSetManager.m */,
 				5E807E19205F45BF007FCE88 /* Main.storyboard */,
 				5E807E1C205F45BF007FCE88 /* Assets.xcassets */,
 				5E807E1E205F45BF007FCE88 /* LaunchScreen.storyboard */,
@@ -337,6 +342,7 @@
 			files = (
 				5E807E18205F45BF007FCE88 /* ViewController.m in Sources */,
 				5E807E23205F45BF007FCE88 /* main.m in Sources */,
+				5E64D14E24F75CCA0040BCB4 /* CCEmptyDataSetManager.m in Sources */,
 				5E807E15205F45BF007FCE88 /* AppDelegate.m in Sources */,
 				5E807E47205F4640007FCE88 /* MainViewController.m in Sources */,
 			);
