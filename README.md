@@ -108,6 +108,8 @@ return YES to display MaskView
 Manager类可以使用 Appearance 方法全局设置部分属性
 具体代码可以查看demo工程中的实现
 
+### 基础用法
+
 ### Import
 
 ```objc
