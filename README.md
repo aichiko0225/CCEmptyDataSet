@@ -57,7 +57,56 @@ return YES to display MaskView
 
 ### 使用方法
 
-其他的基础请参考[DZNEmptyDataSet](https://github.com/dzenbot/DZNEmptyDataSet)
+基础方法请参考[DZNEmptyDataSet](https://github.com/dzenbot/DZNEmptyDataSet)
+
+快捷用法
+
+```objc
+@interface MainViewController : UITableViewController <CCEmptyDataSetSource, CCEmptyDataSetDelegate>
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    self.tableView.emptyDataSetSource = self;
+    self.tableView.emptyDataSetDelegate = self;
+    
+    // A little trick for removing the cell separators
+    self.tableView.tableFooterView = [UIView new];
+}
+
+- (EmptyDataSetType)showTypeForEmptyDataSet:(UIScrollView *)scrollView {
+    return random()%5;
+}
+
+```
+
+使用 showTypeForEmptyDataSet 返回方法可以快速定义emptyView
+
+```objc
+@interface MainViewController : UITableViewController <CCEmptyDataSetSource, CCEmptyDataSetDelegate>
+{
+    CCEmptyDataSetManager *_emptyManager;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    _emptyManager = [CCEmptyDataSetManager emptyDataSetWithImage:nil title:@"11111" message:@"22222" buttonTitle:@"333333"];
+    
+    self.tableView.emptyDataSetSource = _emptyManager;
+    self.tableView.emptyDataSetDelegate = _emptyManager;
+    
+    // A little trick for removing the cell separators
+    self.tableView.tableFooterView = [UIView new];
+}
+
+```
+
+也可以新增一个Manager类来快速定义EmptyView的属性
+Manager类可以使用 Appearance 方法全局设置部分属性
+具体代码可以查看demo工程中的实现
 
 ### Import
 

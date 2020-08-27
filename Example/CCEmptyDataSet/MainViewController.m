@@ -8,9 +8,12 @@
 
 #import "MainViewController.h"
 #import <CCEmptyDataSet/CCEmptyDataSet.h>
+#import "CCEmptyDataSetManager.h"
 
 @interface MainViewController ()<CCEmptyDataSetSource, CCEmptyDataSetDelegate>
-
+{
+    CCEmptyDataSetManager *_emptyManager;
+}
 @property (nonatomic, assign) BOOL isRefresh;
 
 @property (nonatomic, assign) BOOL showMasks;
@@ -33,6 +36,14 @@
     
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
+    
+    // 同样可以使用CCEmptyDataSetManager 来创建空视图
+    
+//    _emptyManager = [CCEmptyDataSetManager emptyDataSetWithImage:nil title:@"11111" message:@"22222" buttonTitle:@"333333"];
+    
+//    self.tableView.emptyDataSetSource = _emptyManager;
+//    self.tableView.emptyDataSetDelegate = _emptyManager;
+    
     __weak typeof(self) weakSelf = self;
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
@@ -47,7 +58,6 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:1.5] forKey:maskViewDuration_Key];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
 }
 
 - (void)refreshAction {
@@ -56,7 +66,6 @@
         [self.tableView reloadData];
         _isRefresh = !_isRefresh;
     });
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -98,7 +107,6 @@
     _isRefresh = !_isRefresh;
     [self.tableView reloadData];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
